@@ -1,20 +1,20 @@
 import React, { useState } from 'react'
-import List from './List'
-import AddTodo from './AddTodo'
-import './App.css'
+import List from './components/List.js'
+//import Todo from './components/Todo.js'
+import AddTodo from './components/AddTodo.js'
 
 function App() {
-  const [todos, setTodos] = useState([])
+  const [todoList, setTodoList] = useState([])
 
-  function addTodo(item) {
-    const newTodos = [...todos, item]
-    setTodos(newTodos)
+  function handleAdd(listItem) {
+    const newList = [...todoList, listItem]
+    setTodoList(newList)
   }
 
   return (
-    <div className="App">
-      <AddTodo addTodo={addTodo} />
-      <List list={todos} />
+    <div>
+      <AddTodo handleAdd={handleAdd} />
+      <List list={todoList} />
     </div>
   )
 }
